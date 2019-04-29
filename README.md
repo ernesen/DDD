@@ -22,6 +22,7 @@ Microservices are not without their drawbacks; a lack of **DevOps** and **automa
 Using the right approach to building microservices it’s more about the software's architectural design, providing a structure of practices to take design decisions that help in software projects that have complicated domains. It focuses on the area of a specific business to gain a better understanding of what the domain is all about. One must start by modeling the business understanding and modeling the real-world problem to be solved. Domain-Driven Design is a framework based on **strategic** value, and it’s about mapping business domain concepts into software artifacts.
 
 ![Microservices Journey](./images/Four_steps_microservices.png)
+
 **FIGURE 1: Microservices Journey.**
 
 Any microservice implementation could benefit by following this prescriptive approach: 
@@ -50,6 +51,7 @@ A domain can be decomposed into subdomains, which is one particular part of the 
 - There can be communication between various subdomains
 
 ![Domain Model Design](./images/Domain_model_v3.png)
+
 **FIGURE 2: Domain Model Design**
 ### Domain Model
 
@@ -86,6 +88,7 @@ An enterprise application has multiple models, and each model has its own Bounde
 The entity, value object, aggregate,  services, factory, and repository are the building blocks also known as the **tactical** approach to Domain-Driven Design toward its full realization:
 
 ![Domain-Driven Design Tactical Design](./images/DDD_tactical.png)
+
 **FIGURE 3: Domain-Driven Design Tactical Design**
 
 [Eric Evans's](https://amzn.to/ffL1k) book [Domain Driven Design: Tackling Complexity in the Heart of Software] describes these in details; I'll only create a small classification for you to get started.
@@ -183,6 +186,7 @@ Microservice, a component in this architecture:
 - Each has a well-defined interface: REST APIs
 
 ![Microservices Architecture](./images/Microservice_architecture.png)
+
 **FIGURE 4: Microservices Architecture.**
 
 Microservices architecture is far more flexible and resilient providing these benefits of using this approach to build an application:
@@ -204,6 +208,7 @@ The dispatchers do what the app model used to do: One stop shopping for the clie
 What happened to the view layer? It moved into the clients (where it belonged all along!). Either the client is a mobile app, which is a view with perhaps a bit of its app model; or it’s a partner app that’s way more than just a view, but that has its own views, or it’s a web app. Web apps used to contain a lot of view code to render the HTML, and needed state from the view in an HTTP session, but no more. With modern techniques using HTML 5 and CSS 3, the web browser uses static files (downloaded from the web site) to do all that rendering and store the session state.
 
 ![Microservices architecture layers](./images/Microservices_architecture_layers.png)
+
 **FIGURE 5: Microservices architecture layers.**
 
 ### Backend for frontend (BFF)
@@ -212,6 +217,7 @@ The same team develops each back end and front-end pair; Use the same or compati
 _Usually, rather than have one team write all/multiple dispatchers while someone else implements the clients, instead put the same team in charge of a dispatcher/client pair. The two are going to have to be designed for each other, so have the communication take place within a team, not between teams. The skills tend to be different for different types of clients, so let the teams specialize._[*](https://developer.ibm.com/courses-center/backend-frontend-bff-dwc024/)
 
 ![Back ends for front ends](./images/Back_ends_for_front_ends.png)
+
 **FIGURE 6: Back ends for front ends.**
 
 ### Asynchronous communication
@@ -225,6 +231,7 @@ _Consider integrating asynchronously. Synchronous REST is usually easier to get 
 How is async invocation more reliable? With sync, the whole loop—requester, provider, messages—has to keep working though the whole lifetime of the invocation. With async, the invocation is broken into 3-4 parts; if any one fails, the system can probably retry it for you. Heck, because the requester is stateless, the instance that receives the response doesn’t even have to be the instance that sent the request.
 
 ![Asynchronous communication](./images/Asynchronous_communication.png)
+
 **FIGURE 7: Asynchronous communication.**
 
 ### Microservices intercommunication
@@ -250,6 +257,7 @@ The aim is complete decoupling, achieved by these methods:
 We can mix and match sync and async. Usually, a request/response invocation is either all sync or all async, but this shows that a single invocation can be sync in one direction and async in the other.
 
 ![Microservices intercommunication](./images/Microservices_intercommunication.png)
+
 **FIGURE 8: Microservices intercommunication.**
 
 ## Conclusion
